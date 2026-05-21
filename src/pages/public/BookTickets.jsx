@@ -8,7 +8,15 @@ import ticketsData from "../../data/tickets";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../components/common/Button";
 import Card from "../../components/common/Card";
-import { Calendar, User, Mail, Ticket, Plus, Minus, ArrowRight } from "lucide-react";
+import {
+  Calendar,
+  User,
+  Mail,
+  Ticket,
+  Plus,
+  Minus,
+  ArrowRight,
+} from "lucide-react";
 
 const BookTickets = () => {
   const navigate = useNavigate();
@@ -26,7 +34,9 @@ const BookTickets = () => {
       fullName: draft?.fullName || "",
       email: draft?.email || "",
       visitDate: draft?.visitDate || "",
-      tickets: draft?.tickets || ticketsData.reduce((acc, t) => ({ ...acc, [t.id]: 0 }), {}),
+      tickets:
+        draft?.tickets ||
+        ticketsData.reduce((acc, t) => ({ ...acc, [t.id]: 0 }), {}),
     },
   });
 
@@ -35,7 +45,8 @@ const BookTickets = () => {
 
   useEffect(() => {
     const newTotal = ticketsData.reduce((sum, ticket) => {
-      return sum + (selectedTickets[ticket.id] || 0) * ticket.price;
+      const count = selectedTickets[ticket.id] || 0;
+      return sum + count * ticket.price;
     }, 0);
     setTotal(newTotal);
   }, [selectedTickets]);
@@ -54,11 +65,18 @@ const BookTickets = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold text-gray-900">Book Your Adventure</h1>
-        <p className="mt-2 text-gray-600">Select your date and tickets to visit Zoomania.</p>
+        <h1 className="text-3xl font-bold text-gray-900">
+          Book Your Adventure
+        </h1>
+        <p className="mt-2 text-gray-600">
+          Select your date and tickets to visit Zoomania.
+        </p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+      >
         {/* Left: Form Info */}
         <div className="md:col-span-2 space-y-6">
           <Card className="p-6">
@@ -68,7 +86,9 @@ const BookTickets = () => {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name
+                </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
@@ -78,11 +98,17 @@ const BookTickets = () => {
                     placeholder="John Doe"
                   />
                 </div>
-                {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName.message}</p>}
+                {errors.fullName && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.fullName.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address
+                </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
@@ -92,11 +118,17 @@ const BookTickets = () => {
                     placeholder="john@example.com"
                   />
                 </div>
-                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Visit Date</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Visit Date
+                </label>
                 <div className="relative">
                   <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
@@ -105,7 +137,11 @@ const BookTickets = () => {
                     className="pl-10 w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
                   />
                 </div>
-                {errors.visitDate && <p className="mt-1 text-sm text-red-600">{errors.visitDate.message}</p>}
+                {errors.visitDate && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.visitDate.message}
+                  </p>
+                )}
               </div>
             </div>
           </Card>
@@ -117,11 +153,18 @@ const BookTickets = () => {
             </h2>
             <div className="divide-y divide-gray-100">
               {ticketsData.map((ticket) => (
-                <div key={ticket.id} className="py-4 flex items-center justify-between">
+                <div
+                  key={ticket.id}
+                  className="py-4 flex items-center justify-between"
+                >
                   <div>
                     <h3 className="font-bold text-gray-900">{ticket.name}</h3>
-                    <p className="text-sm text-gray-500">{ticket.description} ({ticket.ageRange})</p>
-                    <p className="text-green-600 font-medium">{formatCurrency(ticket.price)}</p>
+                    <p className="text-sm text-gray-500">
+                      {ticket.description} ({ticket.ageRange})
+                    </p>
+                    <p className="text-green-600 font-medium">
+                      {formatCurrency(ticket.price)}
+                    </p>
                   </div>
                   <div className="flex items-center space-x-3">
                     <button
@@ -131,7 +174,9 @@ const BookTickets = () => {
                     >
                       <Minus className="w-4 h-4" />
                     </button>
-                    <span className="w-8 text-center font-bold">{selectedTickets[ticket.id] || 0}</span>
+                    <span className="w-8 text-center font-bold">
+                      {selectedTickets[ticket.id] || 0}
+                    </span>
                     <button
                       type="button"
                       onClick={() => handleTicketChange(ticket.id, 1)}
@@ -143,21 +188,32 @@ const BookTickets = () => {
                 </div>
               ))}
             </div>
-            {errors.tickets && <p className="mt-4 text-sm text-red-600 text-center">{errors.tickets.message}</p>}
+            {errors.tickets && (
+              <p className="mt-4 text-sm text-red-600 text-center">
+                {errors.tickets.message}
+              </p>
+            )}
           </Card>
         </div>
 
         {/* Right: Summary */}
         <div className="md:col-span-1">
           <Card className="p-6 sticky top-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">
+              Order Summary
+            </h2>
             <div className="space-y-4 mb-6">
               {ticketsData.map((ticket) => {
                 const count = selectedTickets[ticket.id] || 0;
                 if (count === 0) return null;
                 return (
-                  <div key={ticket.id} className="flex justify-between text-sm text-gray-600">
-                    <span>{ticket.name} x {count}</span>
+                  <div
+                    key={ticket.id}
+                    className="flex justify-between text-sm text-gray-600"
+                  >
+                    <span>
+                      {ticket.name} x {count}
+                    </span>
                     <span>{formatCurrency(ticket.price * count)}</span>
                   </div>
                 );

@@ -1,7 +1,18 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { getStaffSession, clearStaffSession } from "../utils/storage";
+import Button from "../components/common/Button";
 
 const DashboardLayout = () => {
+  const navigate = useNavigate();
+  const session = getStaffSession();
+
+  const handleLogout = () => {
+    clearStaffSession();
+    toast.success("Logged out of staff portal.");
+    navigate("/staff/login");
+  };
+
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
@@ -29,20 +40,35 @@ const DashboardLayout = () => {
             Manage Bookings
           </Link>
         </nav>
-        <div className="p-4 border-t border-green-700">
+        <div className="p-4 border-t border-green-700 space-y-2">
           <Link
             to="/"
             className="block px-4 py-2 text-sm text-green-300 hover:text-white"
           >
             Back to Public Site
           </Link>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="block w-full text-left px-4 py-2 text-sm text-green-300 hover:text-white"
+          >
+            Log Out
+          </button>
         </div>
       </div>
 
       {/* Main Content */}
       <div className="flex-grow flex flex-col overflow-hidden">
-        <header className="bg-white shadow-sm h-16 flex items-center px-8">
+        <header className="bg-white shadow-sm h-16 flex items-center justify-between px-8">
           <h1 className="text-xl font-semibold text-gray-800">Staff Portal</h1>
+          <div className="flex items-center gap-4">
+            {session?.email && (
+              <span className="text-sm text-gray-500">{session.email}</span>
+            )}
+            <Button variant="outline" className="text-sm py-1" onClick={handleLogout}>
+              Log Out
+            </Button>
+          </div>
         </header>
         <main className="flex-grow overflow-y-auto p-8">
           <Outlet />

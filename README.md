@@ -1,16 +1,87 @@
-# React + Vite
+# Zoomania
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React zoo management web app for visitors and staff. Visitors can browse animals, book tickets, and manage their profile. Staff can manage animals and bookings from a protected dashboard.
 
-Currently, two official plugins are available:
+Data is stored in the browser via `localStorage` (no backend required).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19 + Vite
+- React Router
+- Tailwind CSS
+- React Hook Form + Zod
+- Sonner (toasts)
+- Lucide React (icons)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Open [http://localhost:5173](http://localhost:5173).
+
+## Demo Credentials
+
+### Staff portal (`/staff/login`)
+
+| Field    | Value            |
+| -------- | ---------------- |
+| Email    | `admin@zoo.com`  |
+| Password | `admin123`       |
+
+### Visitor accounts
+
+Register at `/register`, then log in at `/login`.
+
+## Features
+
+### Public
+
+- Browse animals with filters and detail pages
+- Book tickets and complete demo payment
+- Visitor registration, login, and profile with booking history
+- Contact form with validation
+
+### Staff
+
+- Dashboard with stats and latest bookings
+- Animal CRUD (add, edit, delete, search)
+- Booking management (search, cancel, check-in, status filter)
+
+## Project Structure
+
+```
+src/
+  components/   # Reusable UI (animals, booking, common, navigation)
+  data/         # Seed data (animals, tickets, staff)
+  layouts/      # Public and dashboard layouts
+  pages/        # Public and staff pages
+  routes/       # Route definitions and guards
+  utils/        # Storage, validators, helpers
+```
+
+## Storage Keys
+
+| Key               | Purpose              |
+| ----------------- | -------------------- |
+| `zooAnimals`      | Animal records       |
+| `zooBookings`     | Ticket bookings      |
+| `zooVisitors`     | Registered visitors  |
+| `zooLoggedInUser` | Visitor session      |
+| `zooStaffSession` | Staff session        |
+| `zooCheckoutDraft`| In-progress checkout |
+
+## Scripts
+
+| Command         | Description          |
+| --------------- | -------------------- |
+| `npm run dev`   | Start dev server     |
+| `npm run build` | Production build     |
+| `npm run lint`  | Run ESLint           |
+| `npm run preview` | Preview production build |
+
+## License
+
+See [LICENSE](LICENSE).

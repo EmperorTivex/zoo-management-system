@@ -32,18 +32,27 @@ export const seedAnimals = (defaultAnimals) => {
 
 export const getAnimals = () => getItem(STORAGE_KEYS.ANIMALS, []);
 
-export const saveAnimals = (data) => setItem(STORAGE_KEYS.ANIMALS, data);
+export const setAnimals = (animals) => setItem(STORAGE_KEYS.ANIMALS, animals);
+
+/** @deprecated Use setAnimals instead */
+export const saveAnimals = setAnimals;
 
 /**
  * Booking data management
  */
 export const getBookings = () => getItem(STORAGE_KEYS.BOOKINGS, []);
 
-export const saveBookings = (bookings) => setItem(STORAGE_KEYS.BOOKINGS, bookings);
+export const setBookings = (bookings) =>
+  setItem(STORAGE_KEYS.BOOKINGS, bookings);
 
 export const addBooking = (newBooking) => {
-  const currentBookings = getBookings();
-  setItem(STORAGE_KEYS.BOOKINGS, [newBooking, ...currentBookings]);
+  setBookings([newBooking, ...getBookings()]);
+};
+
+export const updateBooking = (id, updates) => {
+  setBookings(
+    getBookings().map((b) => (b.id === id ? { ...b, ...updates } : b)),
+  );
 };
 
 export const getBookingById = (id) => {
@@ -54,30 +63,55 @@ export const getBookingById = (id) => {
 /**
  * Checkout draft management
  */
-export const saveCheckoutDraft = (data) => setItem(STORAGE_KEYS.CHECKOUT_DRAFT, data);
+export const saveCheckoutDraft = (data) =>
+  setItem(STORAGE_KEYS.CHECKOUT_DRAFT, data);
 
 export const getCheckoutDraft = () => getItem(STORAGE_KEYS.CHECKOUT_DRAFT);
 
-export const clearCheckoutDraft = () => localStorage.removeItem(STORAGE_KEYS.CHECKOUT_DRAFT);
+export const clearCheckoutDraft = () =>
+  localStorage.removeItem(STORAGE_KEYS.CHECKOUT_DRAFT);
 
 /**
  * Visitor data management
  */
 export const getVisitors = () => getItem(STORAGE_KEYS.VISITORS, []);
 
-export const saveVisitors = (data) => setItem(STORAGE_KEYS.VISITORS, data);
+export const setVisitors = (visitors) => setItem(STORAGE_KEYS.VISITORS, visitors);
+
+/** @deprecated Use setVisitors instead */
+export const saveVisitors = setVisitors;
+
+export const getVisitorByEmail = (email) =>
+  getVisitors().find(
+    (v) => v.email.toLowerCase() === email.toLowerCase().trim(),
+  );
+
+export const addVisitor = (visitor) => {
+  setVisitors([...getVisitors(), visitor]);
+};
 
 /**
- * Auth / Session management
+ * Visitor auth / session
  */
 export const getCurrentUser = () => getItem(STORAGE_KEYS.CURRENT_USER);
 
 export const setCurrentUser = (user) =>
   setItem(STORAGE_KEYS.CURRENT_USER, user);
 
+/**
+ * Staff session
+ */
+export const getStaffSession = () => getItem(STORAGE_KEYS.STAFF_SESSION);
+
+export const setStaffSession = (session) =>
+  setItem(STORAGE_KEYS.STAFF_SESSION, session);
+
+export const clearStaffSession = () =>
+  localStorage.removeItem(STORAGE_KEYS.STAFF_SESSION);
+
 export const logoutCurrentUser = () => {
   localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
-  localStorage.removeItem(STORAGE_KEYS.STAFF_SESSION);
+  clearStaffSession();
 };
 
 export const clearAllData = () => {

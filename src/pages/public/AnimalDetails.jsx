@@ -12,15 +12,10 @@ const AnimalDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      const allAnimals = getAnimals();
-      const foundAnimal = allAnimals.find((a) => a.id === id);
-      setAnimal(foundAnimal);
-      setLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
+    const allAnimals = getAnimals();
+    const foundAnimal = allAnimals.find((a) => a.id === id);
+    setAnimal(foundAnimal);
+    setLoading(false);
   }, [id]);
 
   if (loading) return <LoadingSpinner />;
@@ -113,7 +108,13 @@ const AnimalDetails = () => {
                 <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
                   Age
                 </p>
-                <p className="text-gray-900 font-medium">{animal.age} Years</p>
+                <p className="text-gray-900 font-medium">{animal.age} years</p>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
+                  Gender
+                </p>
+                <p className="text-gray-900 font-medium">{animal.gender}</p>
               </div>
               <div>
                 <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
@@ -175,7 +176,7 @@ const AnimalDetails = () => {
           <div className="mt-auto">
             <Link to="/book-tickets">
               <Button className="w-full py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">
-                Book Tickets to Visit {animal.name}
+                Book Now
               </Button>
             </Link>
           </div>

@@ -18,6 +18,8 @@ import VisitorLogin from "../pages/public/VisitorLogin";
 import VisitorRegister from "../pages/public/VisitorRegister";
 import Profile from "../pages/public/Profile";
 import NotFound from "../pages/public/NotFound";
+import ProtectedRoute from "./ProtectedRoute";
+import StaffProtectedRoute from "./StaffProtectedRoute";
 
 // Staff Pages
 import StaffLogin from "../pages/staff/StaffLogin";
@@ -40,15 +42,19 @@ const AppRoutes = () => {
         <Route path="/booking-success/:id" element={<BookingSuccess />} />
         <Route path="/login" element={<VisitorLogin />} />
         <Route path="/register" element={<VisitorRegister />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Route>
 
       {/* Staff Routes */}
       <Route path="/staff/login" element={<StaffLogin />} />
-      <Route path="/staff" element={<DashboardLayout />}>
-        <Route path="dashboard" element={<DashboardHome />} />
-        <Route path="animals" element={<ManageAnimals />} />
-        <Route path="bookings" element={<ManageBookings />} />
+      <Route element={<StaffProtectedRoute />}>
+        <Route path="/staff" element={<DashboardLayout />}>
+          <Route path="dashboard" element={<DashboardHome />} />
+          <Route path="animals" element={<ManageAnimals />} />
+          <Route path="bookings" element={<ManageBookings />} />
+        </Route>
       </Route>
 
       {/* 404 Route */}

@@ -25,12 +25,7 @@ export const formatDate = (date) => {
  * Generates a unique booking reference
  */
 export const generateBookingReference = () => {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let result = "ZM-";
-  for (let i = 0; i < 6; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return result;
+  return `BK-${Math.floor(100000 + Math.random() * 900000)}`;
 };
 
 /**
@@ -48,4 +43,14 @@ export const calculateBookingTotal = (selectedTickets) => {
 export const truncateText = (text, length = 100) => {
   if (!text || text.length <= length) return text;
   return text.substring(0, length) + "...";
+};
+
+/**
+ * Gets selected tickets from ticket types and quantities
+ */
+export const getSelectedTickets = (ticketTypes, quantities) => {
+  return ticketTypes.map(ticket => ({
+    ...ticket,
+    quantity: quantities[ticket.id] || 0,
+  })).filter(ticket => ticket.quantity > 0);
 };
