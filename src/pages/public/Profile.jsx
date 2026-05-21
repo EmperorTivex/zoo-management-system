@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   getCurrentUser,
   getBookings,
-  logoutCurrentUser,
+  clearCurrentUser,
 } from "../../utils/storage";
 import { formatCurrency, formatDate } from "../../utils/helpers";
 import Badge from "../../components/common/Badge";
@@ -39,7 +39,7 @@ const Profile = () => {
   );
 
   const handleLogout = () => {
-    logoutCurrentUser();
+    clearCurrentUser();
     navigate("/login");
   };
 

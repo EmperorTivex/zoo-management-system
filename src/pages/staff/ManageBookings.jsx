@@ -133,23 +133,25 @@ const ManageBookings = () => {
                       {getDisplayStatus(booking)}
                     </Badge>
                   </td>
-                  <td className="px-6 py-4 text-right space-x-2 whitespace-nowrap">
-                    <Button
-                      variant="outline"
-                      className="text-xs py-1 px-2"
-                      disabled={booking.checkedIn || booking.status === "Cancelled"}
-                      onClick={() => handleCheckIn(booking)}
-                    >
-                      Check In
-                    </Button>
-                    <Button
-                      variant="danger"
-                      className="text-xs py-1 px-2"
-                      disabled={booking.status === "Cancelled"}
-                      onClick={() => handleCancel(booking)}
-                    >
-                      Cancel
-                    </Button>
+                  <td className="px-3 sm:px-6 py-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-end gap-2">
+                      <Button
+                        variant="outline"
+                        className="text-xs py-1 px-2 w-full sm:w-auto"
+                        disabled={booking.checkedIn || booking.status === "Cancelled"}
+                        onClick={() => handleCheckIn(booking)}
+                      >
+                        Check In
+                      </Button>
+                      <Button
+                        variant="danger"
+                        className="text-xs py-1 px-2 w-full sm:w-auto"
+                        disabled={booking.status === "Cancelled"}
+                        onClick={() => handleCancel(booking)}
+                      >
+                        Cancel
+                      </Button>
+                    </div>
                   </td>
                 </tr>
               ))

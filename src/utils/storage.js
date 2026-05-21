@@ -98,6 +98,9 @@ export const getCurrentUser = () => getItem(STORAGE_KEYS.CURRENT_USER);
 export const setCurrentUser = (user) =>
   setItem(STORAGE_KEYS.CURRENT_USER, user);
 
+export const clearCurrentUser = () =>
+  localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
+
 /**
  * Staff session
  */

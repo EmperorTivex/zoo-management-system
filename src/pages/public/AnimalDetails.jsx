@@ -66,7 +66,7 @@ const AnimalDetails = () => {
           <img
             src={animal.image}
             alt={animal.name}
-            className="w-full h-[500px] object-cover"
+            className="w-full h-56 sm:h-72 md:h-96 lg:h-[500px] object-cover"
             crossOrigin="anonymous"
             referrerPolicy="no-referrer"
           />
@@ -74,9 +74,9 @@ const AnimalDetails = () => {
 
         {/* Right: Info */}
         <div className="flex flex-col">
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
             <div>
-              <h1 className="text-4xl font-extrabold text-gray-900">
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-900">
                 {animal.name}
               </h1>
               <p className="text-xl text-gray-500 italic">{animal.species}</p>

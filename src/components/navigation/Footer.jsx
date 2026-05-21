@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { clearAllData } from "../../utils/storage";
 
 const Footer = () => {
@@ -12,22 +12,20 @@ const Footer = () => {
               Your ultimate zoo management system.
             </p>
           </div>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
             <button
+              type="button"
               onClick={clearAllData}
               className="text-gray-500 hover:text-red-400 text-xs uppercase tracking-widest font-bold"
             >
               Reset Data
             </button>
-            <a href="#" className="text-gray-400 hover:text-white">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              Terms of Service
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white">
-              Support
-            </a>
+            <Link to="/contact" className="text-gray-400 hover:text-white text-sm">
+              Contact
+            </Link>
+            <Link to="/about" className="text-gray-400 hover:text-white text-sm">
+              About
+            </Link>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">

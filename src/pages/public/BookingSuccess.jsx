@@ -54,12 +54,12 @@ const BookingSuccess = () => {
   const totalPaid = booking.totalAmount ?? booking.total ?? 0;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
+    <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
       <div className="text-center mb-12">
         <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
           <CheckCircle className="w-12 h-12 text-green-600" />
         </div>
-        <h1 className="text-4xl font-extrabold text-gray-900">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-900">
           Booking Confirmed!
         </h1>
         <p className="mt-2 text-xl text-gray-500">
