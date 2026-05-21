@@ -47,7 +47,7 @@ const animals = [
     conservationStatus: "Vulnerable",
     caretaker: "Mark Wilson",
     feedingTime: "9:00 AM",
-    image: "https://images.unsplash.com/photo-1547721064-36202633ad1c?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1702498257321-6b5907efcda5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmV0aWN1bGF0ZWQlMjBHaXJhZmZlfGVufDB8fDB8fHww",
     description: "Gerry is known for his curious nature and long neck that helps him reach the highest leaves."
   },
   {
@@ -81,7 +81,7 @@ const animals = [
     conservationStatus: "Least Concern",
     caretaker: "Alice Brown",
     feedingTime: "8:30 AM",
-    image: "https://images.unsplash.com/photo-1552728089-57bdde30efe3?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1510272839903-5112a2e44bc6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Rio is very talkative and can mimic several human phrases."
   },
   {
@@ -115,7 +115,7 @@ const animals = [
     conservationStatus: "Least Concern",
     caretaker: "Steve Hunter",
     feedingTime: "12:00 PM",
-    image: "https://images.unsplash.com/photo-1549289621-0accf8e27dfd?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1725696794622-b0aac6b42462?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNyb2NvZGlsZXN8ZW58MHx8MHx8fDA%3D",
     description: "Snap is the largest reptile in the zoo and spends most of his day sunbathing."
   },
   {
@@ -132,7 +132,7 @@ const animals = [
     conservationStatus: "Least Concern",
     caretaker: "Alice Brown",
     feedingTime: "7:00 PM",
-    image: "https://images.unsplash.com/photo-1550950343-4a0044145749?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1559253664-ca249d4608c6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJvZ3xlbnwwfHwwfHx8MA%3D%3D",
     description: "Leap is small but very vibrant with her bright red eyes and green body."
   },
   {
@@ -149,7 +149,7 @@ const animals = [
     conservationStatus: "Critically Endangered",
     caretaker: "Mark Wilson",
     feedingTime: "1:00 PM",
-    image: "https://images.unsplash.com/photo-1523362141973-5188981667b3?auto=format&fit=crop&q=80&w=800",
+    image: "https://plus.unsplash.com/premium_photo-1697729969603-1155a03ee785?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEJhY3RyaWFuJTIwQ2FtZWx8ZW58MHx8MHx8fDA%3D",
     description: "Humphrey is well-adapted to the desert with his two humps for fat storage."
   },
   {
@@ -166,7 +166,7 @@ const animals = [
     conservationStatus: "Vulnerable",
     caretaker: "Bob Smith",
     feedingTime: "10:30 AM",
-    image: "https://images.unsplash.com/photo-1560273074-c980cabd0524?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1704694214588-24f4bae4757b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3JlYXQlMjBXaGl0ZSUyMFNoYXJrfGVufDB8fDB8fHww",
     description: "Finn is a majestic predator and the star of the deep-sea exhibit."
   },
   {
@@ -200,7 +200,7 @@ const animals = [
     conservationStatus: "Least Concern",
     caretaker: "Alice Brown",
     feedingTime: "11:30 AM",
-    image: "https://images.unsplash.com/photo-1481005234293-f09459341496?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1557401620-67270b61ea82?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QmFsZCUyMEVhZ2xlfGVufDB8fDB8fHww",
     description: "Sky has a massive wingspan and incredible vision for spotting prey."
   },
   {
@@ -251,7 +251,7 @@ const animals = [
     conservationStatus: "Near Threatened",
     caretaker: "Mark Wilson",
     feedingTime: "3:00 PM",
-    image: "https://images.unsplash.com/photo-1534193561958-4062a11f2a3e?auto=format&fit=crop&q=80&w=800",
+    image: "https://plus.unsplash.com/premium_photo-1664304381042-c161828efeb1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8V2hpdGUlMjBSaGlub2Nlcm9zfGVufDB8fDB8fHww",
     description: "Rocky is a solid presence in the savannah exhibit and enjoys mud baths."
   }
 ];
