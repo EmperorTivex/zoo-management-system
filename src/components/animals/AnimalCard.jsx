@@ -1,22 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Card from '../common/Card';
-import Badge from '../common/Badge';
+import React from "react";
+import { Link } from "react-router-dom";
+import Card from "../common/Card";
+import Badge from "../common/Badge";
 
 const AnimalCard = ({ animal }) => {
   const getStatusVariant = (status) => {
     switch (status.toLowerCase()) {
-      case 'healthy':
-      case 'least concern':
-        return 'success';
-      case 'vulnerable':
-      case 'near threatened':
-        return 'warning';
-      case 'endangered':
-      case 'critically endangered':
-        return 'danger';
+      case "healthy":
+      case "least concern":
+        return "success";
+      case "vulnerable":
+      case "near threatened":
+        return "warning";
+      case "endangered":
+      case "critically endangered":
+        return "danger";
       default:
-        return 'default';
+        return "default";
     }
   };
 
@@ -26,6 +26,9 @@ const AnimalCard = ({ animal }) => {
         src={animal.image}
         alt={animal.name}
         className="w-full h-48 object-cover"
+        crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
+        loading="lazy"
       />
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">

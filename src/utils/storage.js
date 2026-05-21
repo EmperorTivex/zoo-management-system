@@ -39,10 +39,26 @@ export const saveAnimals = (data) => setItem(STORAGE_KEYS.ANIMALS, data);
  */
 export const getBookings = () => getItem(STORAGE_KEYS.BOOKINGS, []);
 
-export const saveBookings = (data) => {
+export const saveBookings = (bookings) => setItem(STORAGE_KEYS.BOOKINGS, bookings);
+
+export const addBooking = (newBooking) => {
   const currentBookings = getBookings();
-  setItem(STORAGE_KEYS.BOOKINGS, [...currentBookings, data]);
+  setItem(STORAGE_KEYS.BOOKINGS, [newBooking, ...currentBookings]);
 };
+
+export const getBookingById = (id) => {
+  const bookings = getBookings();
+  return bookings.find((b) => b.id === id);
+};
+
+/**
+ * Checkout draft management
+ */
+export const saveCheckoutDraft = (data) => setItem(STORAGE_KEYS.CHECKOUT_DRAFT, data);
+
+export const getCheckoutDraft = () => getItem(STORAGE_KEYS.CHECKOUT_DRAFT);
+
+export const clearCheckoutDraft = () => localStorage.removeItem(STORAGE_KEYS.CHECKOUT_DRAFT);
 
 /**
  * Visitor data management
@@ -56,9 +72,15 @@ export const saveVisitors = (data) => setItem(STORAGE_KEYS.VISITORS, data);
  */
 export const getCurrentUser = () => getItem(STORAGE_KEYS.CURRENT_USER);
 
-export const setCurrentUser = (user) => setItem(STORAGE_KEYS.CURRENT_USER, user);
+export const setCurrentUser = (user) =>
+  setItem(STORAGE_KEYS.CURRENT_USER, user);
 
 export const logoutCurrentUser = () => {
   localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
   localStorage.removeItem(STORAGE_KEYS.STAFF_SESSION);
+};
+
+export const clearAllData = () => {
+  Object.values(STORAGE_KEYS).forEach((key) => localStorage.removeItem(key));
+  window.location.reload();
 };

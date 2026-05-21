@@ -4,4 +4,5 @@ export const STORAGE_KEYS = {
   VISITORS: "zooVisitors",
   CURRENT_USER: "zooLoggedInUser",
   STAFF_SESSION: "zooStaffSession",
+  CHECKOUT_DRAFT: "zooCheckoutDraft",
 };
