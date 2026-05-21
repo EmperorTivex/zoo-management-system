@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,6 +29,7 @@ const BookTickets = () => {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(bookingSchema),
+    mode: "onTouched",
     defaultValues: {
       fullName: draft?.fullName || "",
       email: draft?.email || "",
@@ -40,25 +40,40 @@ const BookTickets = () => {
     },
   });
 
-  const selectedTickets = watch("tickets");
-  const [total, setTotal] = useState(0);
+  const getTicketCount = (id) => Number(watch(`tickets.${id}`)) || 0;
 
-  useEffect(() => {
-    const newTotal = ticketsData.reduce((sum, ticket) => {
-      const count = selectedTickets[ticket.id] || 0;
-      return sum + count * ticket.price;
-    }, 0);
-    setTotal(newTotal);
-  }, [selectedTickets]);
+  const total = ticketsData.reduce(
+    (sum, ticket) => sum + getTicketCount(ticket.id) * ticket.price,
+    0,
+  );
 
   const handleTicketChange = (id, delta) => {
-    const currentCount = selectedTickets[id] || 0;
+    const currentCount = getTicketCount(id);
     const newCount = Math.max(0, currentCount + delta);
-    setValue(`tickets.${id}`, newCount, { shouldValidate: true });
+    setValue(`tickets.${id}`, newCount, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
   };
 
   const onSubmit = (data) => {
-    saveCheckoutDraft({ ...data, total });
+    // Transform tickets from record to array for the checkout draft
+    const ticketsArray = ticketsData
+      .map((ticket) => ({
+        ...ticket,
+        quantity: data.tickets[ticket.id] || 0,
+      }))
+      .filter((ticket) => ticket.quantity > 0);
+
+    saveCheckoutDraft({
+      fullName: data.fullName,
+      visitorName: data.fullName,
+      email: data.email,
+      visitDate: data.visitDate,
+      tickets: ticketsArray,
+      totalAmount: total,
+    });
     navigate("/payment");
   };
 
@@ -86,16 +101,21 @@ const BookTickets = () => {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="fullName"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Full Name
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
                     {...register("fullName")}
+                    id="fullName"
                     type="text"
                     className="pl-10 w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
                     placeholder="John Doe"
+                    autoComplete="name"
                   />
                 </div>
                 {errors.fullName && (
@@ -106,16 +126,21 @@ const BookTickets = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Email Address
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
                     {...register("email")}
+                    id="email"
                     type="email"
                     className="pl-10 w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
                     placeholder="john@example.com"
+                    autoComplete="email"
                   />
                 </div>
                 {errors.email && (
@@ -126,13 +151,17 @@ const BookTickets = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="visitDate"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Visit Date
                 </label>
                 <div className="relative">
                   <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <input
                     {...register("visitDate")}
+                    id="visitDate"
                     type="date"
                     className="pl-10 w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
                   />
@@ -175,7 +204,7 @@ const BookTickets = () => {
                       <Minus className="w-4 h-4" />
                     </button>
                     <span className="w-8 text-center font-bold">
-                      {selectedTickets[ticket.id] || 0}
+                      {getTicketCount(ticket.id)}
                     </span>
                     <button
                       type="button"
@@ -204,7 +233,7 @@ const BookTickets = () => {
             </h2>
             <div className="space-y-4 mb-6">
               {ticketsData.map((ticket) => {
-                const count = selectedTickets[ticket.id] || 0;
+                const count = getTicketCount(ticket.id);
                 if (count === 0) return null;
                 return (
                   <div
