@@ -21,6 +21,18 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
+                to="/animals"
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700"
+              >
+                Animals
+              </Link>
+              <Link
+                to="/book-tickets"
+                className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700"
+              >
+                Tickets
+              </Link>
+              <Link
                 to="/about"
                 className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700"
               >
@@ -34,12 +46,18 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center space-x-4">
             <Link
-              to="/dashboard"
+              to="/login"
+              className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+            >
+              Login
+            </Link>
+            <Link
+              to="/staff/dashboard"
               className="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-700"
             >
-              Dashboard
+              Staff Portal
             </Link>
           </div>
         </div>
