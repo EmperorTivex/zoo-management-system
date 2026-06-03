@@ -1,9 +1,9 @@
 import { STORAGE_KEYS } from "./constants";
 
 /**
- * Basic localStorage wrappers
+ * Basic localStorage wrappers (internal)
  */
-export const getItem = (key, fallback = null) => {
+const getItem = (key, fallback = null) => {
   try {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : fallback;
@@ -13,7 +13,7 @@ export const getItem = (key, fallback = null) => {
   }
 };
 
-export const setItem = (key, value) => {
+const setItem = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
@@ -33,9 +33,6 @@ export const seedAnimals = (defaultAnimals) => {
 export const getAnimals = () => getItem(STORAGE_KEYS.ANIMALS, []);
 
 export const setAnimals = (animals) => setItem(STORAGE_KEYS.ANIMALS, animals);
-
-/** @deprecated Use setAnimals instead */
-export const saveAnimals = setAnimals;
 
 /**
  * Booking data management
@@ -76,10 +73,8 @@ export const clearCheckoutDraft = () =>
  */
 export const getVisitors = () => getItem(STORAGE_KEYS.VISITORS, []);
 
-export const setVisitors = (visitors) => setItem(STORAGE_KEYS.VISITORS, visitors);
-
-/** @deprecated Use setVisitors instead */
-export const saveVisitors = setVisitors;
+export const setVisitors = (visitors) =>
+  setItem(STORAGE_KEYS.VISITORS, visitors);
 
 export const getVisitorByEmail = (email) =>
   getVisitors().find(

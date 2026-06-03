@@ -6,33 +6,12 @@ import QRCodeDisplay from "../../components/booking/QRCodeDisplay";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import Badge from "../../components/common/Badge";
-import {
-  CheckCircle,
-  Printer,
-  ArrowRight,
-  Home,
-} from "lucide-react";
+import { CheckCircle, Printer, ArrowRight, Home } from "lucide-react";
 
-/** Supports tickets saved as an array (current) or legacy record shape. */
+/** Filter out tickets with 0 quantity. */
 const getTicketLines = (tickets) => {
-  if (!tickets) return [];
-
-  if (Array.isArray(tickets)) {
-    return tickets.filter((t) => (t.quantity ?? 0) > 0);
-  }
-
-  if (typeof tickets === "object") {
-    return Object.entries(tickets)
-      .filter(([, qty]) => Number(qty) > 0)
-      .map(([id, quantity]) => ({
-        id,
-        name: id,
-        quantity: Number(quantity),
-        price: 0,
-      }));
-  }
-
-  return [];
+  if (!tickets || !Array.isArray(tickets)) return [];
+  return tickets.filter((t) => (t.quantity ?? 0) > 0);
 };
 
 const BookingSuccess = () => {
