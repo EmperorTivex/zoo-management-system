@@ -73,8 +73,7 @@ export const clearCheckoutDraft = () =>
  */
 export const getVisitors = () => getItem(STORAGE_KEYS.VISITORS, []);
 
-export const setVisitors = (visitors) =>
-  setItem(STORAGE_KEYS.VISITORS, visitors);
+export const setVisitors = (visitors) => setItem(STORAGE_KEYS.VISITORS, visitors);
 
 export const getVisitorByEmail = (email) =>
   getVisitors().find(

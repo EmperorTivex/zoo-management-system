@@ -6,7 +6,12 @@ import QRCodeDisplay from "../../components/booking/QRCodeDisplay";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import Badge from "../../components/common/Badge";
-import { CheckCircle, Printer, ArrowRight, Home } from "lucide-react";
+import {
+  CheckCircle,
+  Printer,
+  ArrowRight,
+  Home,
+} from "lucide-react";
 
 /** Filter out tickets with 0 quantity. */
 const getTicketLines = (tickets) => {
