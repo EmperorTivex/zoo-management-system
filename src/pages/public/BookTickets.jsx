@@ -223,49 +223,51 @@ const BookTickets = () => {
               </p>
             )}
           </Card>
-          </div>
         </div>
 
         {/* Right: Summary */}
         <div className="md:col-span-1">
           <div className="md:sticky md:top-8">
             <Card className="p-6 border-2 border-green-50 shadow-lg">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">
-              Order Summary
-            </h2>
-            <div className="space-y-4 mb-6">
-              {ticketsData.map((ticket) => {
-                const count = getTicketCount(ticket.id);
-                if (count === 0) return null;
-                return (
-                  <div
-                    key={ticket.id}
-                    className="flex justify-between text-sm text-gray-600"
-                  >
-                    <span>
-                      {ticket.name} x {count}
-                    </span>
-                    <span>{formatCurrency(ticket.price * count)}</span>
-                  </div>
-                );
-              })}
-              <div className="pt-4 border-t border-gray-100 flex justify-between font-bold text-lg text-gray-900">
-                <span>Total</span>
-                <span className="text-green-600">{formatCurrency(total)}</span>
+              <h2 className="text-xl font-bold text-gray-900 mb-6">
+                Order Summary
+              </h2>
+              <div className="space-y-4 mb-6">
+                {ticketsData.map((ticket) => {
+                  const count = getTicketCount(ticket.id);
+                  if (count === 0) return null;
+                  return (
+                    <div
+                      key={ticket.id}
+                      className="flex justify-between text-sm text-gray-600"
+                    >
+                      <span>
+                        {ticket.name} x {count}
+                      </span>
+                      <span>{formatCurrency(ticket.price * count)}</span>
+                    </div>
+                  );
+                })}
+                <div className="pt-4 border-t border-gray-100 flex justify-between font-bold text-lg text-gray-900">
+                  <span>Total</span>
+                  <span className="text-green-600">
+                    {formatCurrency(total)}
+                  </span>
+                </div>
               </div>
-            </div>
-            <Button
-              type="submit"
-              className="w-full flex items-center justify-center py-4 text-lg font-bold shadow-md hover:shadow-lg active:scale-95 transition-all"
-              disabled={total === 0}
-            >
-              Proceed to Payment
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            <p className="mt-4 text-xs text-center text-gray-400 italic">
-              * Payment is secure and encrypted.
-            </p>
-          </Card>
+              <Button
+                type="submit"
+                className="w-full flex items-center justify-center py-4 text-lg font-bold shadow-md hover:shadow-lg active:scale-95 transition-all"
+                disabled={total === 0}
+              >
+                Proceed to Payment
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+              <p className="mt-4 text-xs text-center text-gray-400 italic">
+                * Payment is secure and encrypted.
+              </p>
+            </Card>
+          </div>
         </div>
       </form>
     </div>
