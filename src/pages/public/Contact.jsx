@@ -27,13 +27,16 @@ const Contact = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <p className="text-gray-600 mb-4">
-            Have questions? We'd love to hear from you. Send us a message and
-            we'll respond as soon as possible.
+            If you have any question, We'd love to hear from you. Send us a
+            message and we'll respond as soon as possible - asap.
           </p>
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold text-gray-900">Address</h3>
-              <p className="text-gray-600">123 Wild Way, Nature City, NC 12345</p>
+              <p className="text-gray-600">
+                {" "}
+                Leadcity University, Ibadan, Oyo State , Nigeria.
+              </p>
             </div>
             <div>
               <h3 className="font-semibold text-gray-900">Email</h3>
@@ -41,7 +44,7 @@ const Contact = () => {
             </div>
             <div>
               <h3 className="font-semibold text-gray-900">Phone</h3>
-              <p className="text-gray-600">(555) 123-4567</p>
+              <p className="text-gray-600">07077744907, 0806219087</p>
             </div>
           </div>
         </div>
@@ -82,7 +85,9 @@ const Contact = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </p>
             )}
           </div>
           <div className="mb-6">

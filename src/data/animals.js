@@ -11,10 +11,12 @@ const animals = [
     diet: "Carnivore",
     healthStatus: "Healthy",
     conservationStatus: "Vulnerable",
-    caretaker: "John David",
+    caretaker: "Chidi Okafor",
     feedingTime: "2:00 PM",
-    image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=80&w=800",
-    description: "Leo is one of the oldest lions in the zoo and serves as the pride leader."
+    image:
+      "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=80&w=800",
+    description:
+      "Leo is one of the oldest lions in the zoo and serves as the pride leader.",
   },
   {
     id: "elephant-001",
@@ -28,10 +30,12 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Endangered",
-    caretaker: "Sarah Miller",
+    caretaker: "Amina Bello",
     feedingTime: "10:00 AM",
-    image: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&q=80&w=800",
-    description: "Ellie is a gentle giant who loves bathing in the mud during the afternoon."
+    image:
+      "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&q=80&w=800",
+    description:
+      "Ellie is a gentle giant who loves bathing in the mud during the afternoon.",
   },
   {
     id: "giraffe-001",
@@ -45,14 +49,16 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Vulnerable",
-    caretaker: "Mark Wilson",
+    caretaker: "Olumide Bakare",
     feedingTime: "9:00 AM",
-    image: "https://images.unsplash.com/photo-1702498257321-6b5907efcda5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmV0aWN1bGF0ZWQlMjBHaXJhZmZlfGVufDB8fDB8fHww",
-    description: "Gerry is known for his curious nature and long neck that helps him reach the highest leaves."
+    image:
+      "https://images.unsplash.com/photo-1702498257321-6b5907efcda5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmV0aWN1bGF0ZWQlMjBHaXJhZmZlfGVufDB8fDB8fHww",
+    description:
+      "Gerry is known for his curious nature and long neck that helps him reach the highest leaves.",
   },
   {
     id: "tiger-001",
-    name: "Tia",
+    name: "Tolu",
     species: "Bengal Tiger",
     category: "Mammal",
     habitat: "Rainforest",
@@ -62,10 +68,12 @@ const animals = [
     diet: "Carnivore",
     healthStatus: "Excellent",
     conservationStatus: "Endangered",
-    caretaker: "John David",
+    caretaker: "Tunde Afolayan",
     feedingTime: "4:00 PM",
-    image: "https://images.unsplash.com/photo-1508624217470-5ef0f947d8be?auto=format&fit=crop&q=80&w=800",
-    description: "Tia is a powerful swimmer and enjoys the dense vegetation of her rainforest habitat."
+    image:
+      " https://images.unsplash.com/photo-1615474286632-e31ac3633d58?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Tolu is a powerful swimmer and enjoys the dense vegetation of her rainforest habitat.",
   },
   {
     id: "parrot-001",
@@ -79,14 +87,16 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Least Concern",
-    caretaker: "Alice Brown",
+    caretaker: "Ngozi Egwu",
     feedingTime: "8:30 AM",
-    image: "https://images.unsplash.com/photo-1510272839903-5112a2e44bc6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    description: "Rio is very talkative and can mimic several human phrases."
+    image:
+      "https://images.unsplash.com/photo-1510272839903-5112a2e44bc6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Rio is very talkative and can mimic several human phrases, you can test him by saying your lecturers name.",
   },
   {
     id: "penguin-001",
-    name: "Puddles",
+    name: "Pamilerin",
     species: "Emperor Penguin",
     category: "Bird",
     habitat: "Aquarium",
@@ -96,14 +106,16 @@ const animals = [
     diet: "Carnivore",
     healthStatus: "Healthy",
     conservationStatus: "Near Threatened",
-    caretaker: "Bob Smith",
+    caretaker: "Emeka Nwosu",
     feedingTime: "11:00 AM",
-    image: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&q=80&w=800",
-    description: "Puddles loves the cold and is an expert at sliding on her belly."
+    image:
+      "https://images.unsplash.com/photo-1598439210625-5067c578f3f6?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Pamilerin loves the cold and is an expert at sliding on her belly.",
   },
   {
     id: "crocodile-001",
-    name: "Snap",
+    name: "Jacob",
     species: "Nile Crocodile",
     category: "Reptile",
     habitat: "Wetlands",
@@ -113,14 +125,16 @@ const animals = [
     diet: "Carnivore",
     healthStatus: "Stable",
     conservationStatus: "Least Concern",
-    caretaker: "Steve Hunter",
+    caretaker: "Segun Arinze",
     feedingTime: "12:00 PM",
-    image: "https://images.unsplash.com/photo-1725696794622-b0aac6b42462?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNyb2NvZGlsZXN8ZW58MHx8MHx8fDA%3D",
-    description: "Snap is the largest reptile in the zoo and spends most of his day sunbathing."
+    image:
+      "https://images.unsplash.com/photo-1725696794622-b0aac6b42462?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNyb2NvZGlsZXN8ZW58MHx8MHx8fDA%3D",
+    description:
+      "Jacob is the largest reptile in the zoo and spends most of his day sunbathing.",
   },
   {
     id: "frog-001",
-    name: "Leap",
+    name: "Jessica",
     species: "Red-Eyed Tree Frog",
     category: "Amphibian",
     habitat: "Rainforest",
@@ -130,10 +144,12 @@ const animals = [
     diet: "Insectivore",
     healthStatus: "Excellent",
     conservationStatus: "Least Concern",
-    caretaker: "Alice Brown",
+    caretaker: "Ngozi Egwu",
     feedingTime: "7:00 PM",
-    image: "https://images.unsplash.com/photo-1559253664-ca249d4608c6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJvZ3xlbnwwfHwwfHx8MA%3D%3D",
-    description: "Leap is small but very vibrant with her bright red eyes and green body."
+    image:
+      "https://images.unsplash.com/photo-1559253664-ca249d4608c6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJvZ3xlbnwwfHwwfHx8MA%3D%3D",
+    description:
+      "Jessica is small but very vibrant with her bright red eyes and green body.",
   },
   {
     id: "camel-001",
@@ -147,10 +163,12 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Critically Endangered",
-    caretaker: "Mark Wilson",
+    caretaker: "Olumide Bakare",
     feedingTime: "1:00 PM",
-    image: "https://plus.unsplash.com/premium_photo-1697729969603-1155a03ee785?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEJhY3RyaWFuJTIwQ2FtZWx8ZW58MHx8MHx8fDA%3D",
-    description: "Humphrey is well-adapted to the desert with his two humps for fat storage."
+    image:
+      "https://plus.unsplash.com/premium_photo-1697729969603-1155a03ee785?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEJhY3RyaWFuJTIwQ2FtZWx8ZW58MHx8MHx8fDA%3D",
+    description:
+      "Humphrey is well-adapted to the desert with his two humps for fat storage.",
   },
   {
     id: "shark-001",
@@ -164,14 +182,16 @@ const animals = [
     diet: "Carnivore",
     healthStatus: "Healthy",
     conservationStatus: "Vulnerable",
-    caretaker: "Bob Smith",
+    caretaker: "Emeka Nwosu",
     feedingTime: "10:30 AM",
-    image: "https://images.unsplash.com/photo-1704694214588-24f4bae4757b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3JlYXQlMjBXaGl0ZSUyMFNoYXJrfGVufDB8fDB8fHww",
-    description: "Finn is a majestic predator and the star of the deep-sea exhibit."
+    image:
+      "https://images.unsplash.com/photo-1704694214588-24f4bae4757b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3JlYXQlMjBXaGl0ZSUyMFNoYXJrfGVufDB8fDB8fHww",
+    description:
+      "Finn is a majestic predator and the star of the deep-sea exhibit.",
   },
   {
     id: "zebra-001",
-    name: "Ziggy",
+    name: "Ozigi",
     species: "Plains Zebra",
     category: "Mammal",
     habitat: "Savannah",
@@ -181,10 +201,12 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Near Threatened",
-    caretaker: "Sarah Miller",
+    caretaker: "Amina Bello",
     feedingTime: "9:30 AM",
-    image: "https://images.unsplash.com/photo-1501705388883-4ed8a543392c?auto=format&fit=crop&q=80&w=800",
-    description: "Ziggy's unique stripe pattern makes her easily identifiable among the herd."
+    image:
+      " https://images.unsplash.com/photo-1526319238109-524eecb9b913?q=80&w=1124&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Ozigi's unique stripe pattern makes her easily identifiable among the herd.",
   },
   {
     id: "eagle-001",
@@ -198,10 +220,12 @@ const animals = [
     diet: "Carnivore",
     healthStatus: "Excellent",
     conservationStatus: "Least Concern",
-    caretaker: "Alice Brown",
+    caretaker: "Ngozi Egwu",
     feedingTime: "11:30 AM",
-    image: "https://images.unsplash.com/photo-1557401620-67270b61ea82?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QmFsZCUyMEVhZ2xlfGVufDB8fDB8fHww",
-    description: "Sky has a massive wingspan and incredible vision for spotting prey."
+    image:
+      "https://images.unsplash.com/photo-1557401620-67270b61ea82?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QmFsZCUyMEVhZ2xlfGVufDB8fDB8fHww",
+    description:
+      "Sky has a massive wingspan and incredible vision for spotting prey.",
   },
   {
     id: "turtle-001",
@@ -215,10 +239,12 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Stable",
     conservationStatus: "Endangered",
-    caretaker: "Bob Smith",
+    caretaker: "Emeka Nwosu",
     feedingTime: "8:00 AM",
-    image: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=800",
-    description: "Shelly has been at the zoo for 30 years and is a favorite among children."
+    image:
+      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&q=80&w=800",
+    description:
+      "Shelly has been at the zoo for 30 years and is a favorite among children.",
   },
   {
     id: "koala-001",
@@ -232,10 +258,12 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Vulnerable",
-    caretaker: "Sarah Miller",
+    caretaker: "Amina Bello",
     feedingTime: "6:00 AM",
-    image: "https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&q=80&w=800",
-    description: "Kiki spends 20 hours a day sleeping and loves fresh eucalyptus leaves."
+    image:
+      " https://images.unsplash.com/photo-1579649554660-463ed1d72831?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Kiki spends 20 hours a day sleeping and loves fresh eucalyptus leaves.",
   },
   {
     id: "rhino-001",
@@ -249,11 +277,13 @@ const animals = [
     diet: "Herbivore",
     healthStatus: "Healthy",
     conservationStatus: "Near Threatened",
-    caretaker: "Mark Wilson",
+    caretaker: "Olumide Bakare",
     feedingTime: "3:00 PM",
-    image: "https://plus.unsplash.com/premium_photo-1664304381042-c161828efeb1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8V2hpdGUlMjBSaGlub2Nlcm9zfGVufDB8fDB8fHww",
-    description: "Rocky is a solid presence in the savannah exhibit and enjoys mud baths."
-  }
+    image:
+      " https://images.unsplash.com/flagged/photo-1557650454-65194af63bf9?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    description:
+      "Rocky is a solid presence in the savannah exhibit and enjoys mud baths.",
+  },
 ];
 
 export default animals;

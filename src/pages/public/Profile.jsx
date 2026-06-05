@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   getCurrentUser,
@@ -21,22 +21,23 @@ const Profile = () => {
   const navigate = useNavigate();
   const user = getCurrentUser();
 
-  const userBookings = useMemo(() => {
+  const [userBookings, setUserBookings] = useState([]);
+  const [totalPaid, setTotalPaid] = useState(0);
+
+  useEffect(() => {
     const bookings = getBookings();
-    return bookings.filter(
+    const filtered = bookings.filter(
       (b) =>
         b.userId === user?.id ||
         b.email?.toLowerCase() === user?.email?.toLowerCase(),
     );
-  }, [user?.id, user?.email]);
+    setUserBookings(filtered);
 
-  const totalPaid = useMemo(
-    () =>
-      userBookings
-        .filter((b) => b.paymentStatus === "Paid")
-        .reduce((sum, b) => sum + (b.totalAmount || 0), 0),
-    [userBookings],
-  );
+    const paid = filtered
+      .filter((b) => b.paymentStatus === "Paid")
+      .reduce((sum, b) => sum + (b.totalAmount || 0), 0);
+    setTotalPaid(paid);
+  }, [user?.id, user?.email]);
 
   const handleLogout = () => {
     clearCurrentUser();
@@ -44,7 +45,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Your Profile</h1>
         <Button variant="outline" onClick={handleLogout}>
@@ -53,7 +54,9 @@ const Profile = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 mb-8">
-        <h2 className="text-lg font-bold text-gray-900 mb-4">Account Details</h2>
+        <h2 className="text-lg font-bold text-gray-900 mb-4">
+          Account Details
+        </h2>
         <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <dt className="text-sm text-gray-500">Full Name</dt>

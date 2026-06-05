@@ -78,7 +78,7 @@ const BookTickets = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-4xl mx-auto px-4 py-12 animate-fade-in">
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-gray-900">
           Book Your Adventure
@@ -114,7 +114,7 @@ const BookTickets = () => {
                     id="fullName"
                     type="text"
                     className="pl-10 w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                    placeholder="John Doe"
+                    placeholder="Pascal Couture"
                     autoComplete="name"
                   />
                 </div>
@@ -139,7 +139,7 @@ const BookTickets = () => {
                     id="email"
                     type="email"
                     className="pl-10 w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-                    placeholder="john@example.com"
+                    placeholder="jidekosoko@example.com"
                     autoComplete="email"
                   />
                 </div>
@@ -223,11 +223,13 @@ const BookTickets = () => {
               </p>
             )}
           </Card>
+          </div>
         </div>
 
         {/* Right: Summary */}
         <div className="md:col-span-1">
-          <Card className="p-6 sticky top-8">
+          <div className="md:sticky md:top-8">
+            <Card className="p-6 border-2 border-green-50 shadow-lg">
             <h2 className="text-xl font-bold text-gray-900 mb-6">
               Order Summary
             </h2>
@@ -254,7 +256,7 @@ const BookTickets = () => {
             </div>
             <Button
               type="submit"
-              className="w-full flex items-center justify-center py-3"
+              className="w-full flex items-center justify-center py-4 text-lg font-bold shadow-md hover:shadow-lg active:scale-95 transition-all"
               disabled={total === 0}
             >
               Proceed to Payment

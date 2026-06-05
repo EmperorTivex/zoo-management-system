@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PawPrint, Ticket, DollarSign, Users } from "lucide-react";
 import { getAnimals, getBookings, getVisitors } from "../../utils/storage";
@@ -20,7 +20,15 @@ const StatCard = ({ label, value, icon: Icon, color }) => (
 );
 
 const DashboardHome = () => {
-  const stats = useMemo(() => {
+  const [stats, setStats] = useState({
+    totalAnimals: 0,
+    totalBookings: 0,
+    totalRevenue: 0,
+    confirmedVisitors: 0,
+    latestBookings: [],
+  });
+
+  useEffect(() => {
     const animals = getAnimals();
     const bookings = getBookings();
     const visitors = getVisitors();
@@ -29,7 +37,7 @@ const DashboardHome = () => {
       .filter((b) => b.paymentStatus === "Paid")
       .reduce((sum, b) => sum + (b.totalAmount || 0), 0);
 
-    const confirmedVisitors = new Set(
+    const confirmedVisitorsCount = new Set(
       bookings
         .filter((b) => b.status === "Confirmed")
         .map((b) => b.email?.toLowerCase())
@@ -44,17 +52,17 @@ const DashboardHome = () => {
       )
       .slice(0, 5);
 
-    return {
+    setStats({
       totalAnimals: animals.length,
       totalBookings: bookings.length,
       totalRevenue,
-      confirmedVisitors: confirmedVisitors || visitors.length,
+      confirmedVisitors: confirmedVisitorsCount || visitors.length,
       latestBookings,
-    };
+    });
   }, []);
 
   return (
-    <div>
+    <div className="animate-fade-in">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Overview</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -96,7 +104,9 @@ const DashboardHome = () => {
         </div>
 
         {stats.latestBookings.length === 0 ? (
-          <p className="px-6 py-8 text-gray-500 text-center">No bookings yet.</p>
+          <p className="px-6 py-8 text-gray-500 text-center">
+            No bookings yet.
+          </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">

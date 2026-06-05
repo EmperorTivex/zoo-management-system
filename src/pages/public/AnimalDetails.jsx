@@ -51,132 +51,129 @@ const AnimalDetails = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 animate-fade-in">
       <Link
         to="/animals"
-        className="flex items-center text-gray-500 hover:text-green-600 mb-8 transition-colors"
+        className="inline-flex items-center text-gray-500 hover:text-green-600 mb-6 sm:mb-8 transition-colors group"
       >
-        <ArrowLeft className="w-4 h-4 mr-2" />
+        <ArrowLeft className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" />
         Back to Animals
       </Link>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
         {/* Left: Image */}
-        <div className="rounded-2xl overflow-hidden shadow-xl">
+        <div className="rounded-3xl overflow-hidden shadow-2xl bg-gray-100 sticky top-8">
           <img
             src={animal.image}
             alt={animal.name}
-            className="w-full h-56 sm:h-72 md:h-96 lg:h-[500px] object-cover"
+            className="w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] object-cover"
             crossOrigin="anonymous"
             referrerPolicy="no-referrer"
           />
         </div>
 
         {/* Right: Info */}
-        <div className="flex flex-col">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
+        <div className="flex flex-col pt-2">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <div>
-              <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-900">
+              <h1 className="text-3xl sm:text-5xl font-black text-gray-900 leading-tight">
                 {animal.name}
               </h1>
-              <p className="text-xl text-gray-500 italic">{animal.species}</p>
+              <p className="text-xl text-green-600 font-semibold tracking-wide uppercase mt-1">
+                {animal.species}
+              </p>
             </div>
-            <Badge
-              variant={getStatusVariant(animal.conservationStatus)}
-              className="text-sm px-4 py-1"
-            >
-              {animal.conservationStatus}
-            </Badge>
+            <div className="shrink-0">
+              <Badge
+                variant={getStatusVariant(animal.conservationStatus)}
+                className="text-xs sm:text-sm px-4 py-1.5 shadow-sm font-bold"
+              >
+                {animal.conservationStatus}
+              </Badge>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 mb-8">
-            <Badge variant="info" className="px-3 py-1">
+          <div className="flex flex-wrap gap-2 mb-10">
+            <Badge
+              variant="info"
+              className="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-100"
+            >
               {animal.category}
             </Badge>
-            <Badge variant="default" className="px-3 py-1">
+            <Badge
+              variant="default"
+              className="px-3 py-1 bg-gray-50 text-gray-700 border border-gray-100"
+            >
               {animal.habitat}
             </Badge>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-8">
-            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-              <Info className="w-5 h-5 mr-2 text-green-600" />
-              Key Information
-            </h2>
-            <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-              <div>
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Age
-                </p>
-                <p className="text-gray-900 font-medium">{animal.age} years</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center">
+                <Info className="w-4 h-4 mr-2 text-green-600" />
+                Physical Profile
+              </h2>
+              <div className="space-y-4">
+                {[
+                  ["Age", `${animal.age} years`],
+                  ["Gender", animal.gender],
+                  ["Weight", animal.weight],
+                  ["Diet", animal.diet],
+                ].map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center border-b border-gray-50 pb-2 last:border-0 last:pb-0"
+                  >
+                    <span className="text-gray-500 text-sm">{label}</span>
+                    <span className="text-gray-900 font-bold">{value}</span>
+                  </div>
+                ))}
               </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Gender
-                </p>
-                <p className="text-gray-900 font-medium">{animal.gender}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Weight
-                </p>
-                <p className="text-gray-900 font-medium">{animal.weight}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Diet
-                </p>
-                <p className="text-gray-900 font-medium">{animal.diet}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Health
-                </p>
-                <Badge variant={getStatusVariant(animal.healthStatus)}>
-                  {animal.healthStatus}
-                </Badge>
+            </div>
+
+            <div className="bg-green-50/50 rounded-2xl p-6 border border-green-100/50">
+              <h2 className="text-sm font-bold text-green-700 uppercase tracking-widest mb-4 flex items-center">
+                <User className="w-4 h-4 mr-2" />
+                Care Team
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-green-600/70 text-xs font-bold uppercase mb-1">
+                    Lead Caretaker
+                  </p>
+                  <p className="text-gray-900 font-black text-lg">
+                    {animal.caretaker}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-green-600/70 text-xs font-bold uppercase mb-1 text-right">
+                    Feeding Schedule
+                  </p>
+                  <p className="text-gray-900 font-black text-lg flex items-center justify-end">
+                    <Clock className="w-4 h-4 mr-1.5 text-green-600" />
+                    {animal.feedingTime}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-green-50 rounded-xl p-6 mb-8">
-            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-              <User className="w-5 h-5 mr-2 text-green-600" />
-              Care & Feeding
+          <div className="mb-10">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+              <Heart className="w-5 h-5 mr-2 text-red-500 fill-red-500" />
+              About {animal.name}
             </h2>
-            <div className="flex justify-between">
-              <div>
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Primary Caretaker
-                </p>
-                <p className="text-gray-900 font-medium">{animal.caretaker}</p>
-              </div>
-              <div className="text-right">
-                <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">
-                  Next Feeding
-                </p>
-                <p className="text-gray-900 font-medium flex items-center justify-end">
-                  <Clock className="w-4 h-4 mr-1 text-green-600" />
-                  {animal.feedingTime}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <h2 className="text-lg font-bold text-gray-900 mb-2 flex items-center">
-              <Heart className="w-5 h-5 mr-2 text-red-500" />
-              Description
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              {animal.description}
+            <p className="text-gray-600 leading-relaxed text-lg italic bg-white p-6 rounded-2xl border-l-4 border-green-500 shadow-sm">
+              "{animal.description}"
             </p>
           </div>
 
-          <div className="mt-auto">
+          <div className="sticky bottom-4 sm:relative sm:bottom-0">
             <Link to="/book-tickets">
-              <Button className="w-full py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">
-                Book Now
+              <Button className="w-full py-4 text-xl font-black shadow-xl hover:shadow-2xl active:scale-95 transition-all bg-green-600 hover:bg-green-700 text-white rounded-2xl flex items-center justify-center">
+                Book a Visit to see {animal.name}
+                <ArrowRight className="ml-2 w-6 h-6" />
               </Button>
             </Link>
           </div>

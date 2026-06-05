@@ -96,20 +96,20 @@ const Payment = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12 animate-fade-in">
       <Button
         variant="secondary"
         onClick={() => navigate("/book-tickets")}
-        className="mb-8 flex items-center text-sm"
+        className="mb-6 sm:mb-8 flex items-center text-sm font-bold"
       >
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to Selection
       </Button>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         {/* Left: Payment Form */}
         <div className="md:col-span-2 space-y-6">
-          <Card className="p-6">
+          <Card className="p-6 border-2 border-green-50 shadow-lg">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
               <CreditCard className="w-5 h-5 mr-2 text-green-600" />
               Payment Information
@@ -232,44 +232,46 @@ const Payment = () => {
 
         {/* Right: Booking Summary */}
         <div className="md:col-span-1">
-          <Card className="p-6 bg-gray-50 border-none">
-            <h2 className="text-lg font-bold text-gray-900 mb-4">Summary</h2>
-            <div className="space-y-3 mb-6">
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-500">Name</span>
-                <span className="font-medium">
-                  {checkoutDraft.visitorName || checkoutDraft.fullName}
-                </span>
+          <div className="md:sticky md:top-8">
+            <Card className="p-6 bg-green-50/30 border-2 border-green-100 shadow-sm rounded-2xl">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Summary</h2>
+              <div className="space-y-3 mb-6">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-500">Name</span>
+                  <span className="font-medium">
+                    {checkoutDraft.visitorName || checkoutDraft.fullName}
+                  </span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-500">Date</span>
+                  <span className="font-medium">
+                    {formatDate(checkoutDraft.visitDate)}
+                  </span>
+                </div>
+                <div className="pt-3 border-t border-gray-200">
+                  {checkoutDraft.tickets.map((ticket) => (
+                    <div
+                      key={ticket.id}
+                      className="flex justify-between text-sm mb-1"
+                    >
+                      <span className="text-gray-500 capitalize">
+                        {ticket.name} x {ticket.quantity}
+                      </span>
+                      <span className="font-medium text-gray-900">
+                        {formatCurrency(ticket.price * ticket.quantity)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="pt-3 border-t border-gray-200 flex justify-between font-bold text-gray-900">
+                  <span>Total Amount</span>
+                  <span className="text-green-600">
+                    {formatCurrency(checkoutDraft.totalAmount)}
+                  </span>
+                </div>
               </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-500">Date</span>
-                <span className="font-medium">
-                  {formatDate(checkoutDraft.visitDate)}
-                </span>
-              </div>
-              <div className="pt-3 border-t border-gray-200">
-                {checkoutDraft.tickets.map((ticket) => (
-                  <div
-                    key={ticket.id}
-                    className="flex justify-between text-sm mb-1"
-                  >
-                    <span className="text-gray-500 capitalize">
-                      {ticket.name} x {ticket.quantity}
-                    </span>
-                    <span className="font-medium text-gray-900">
-                      {formatCurrency(ticket.price * ticket.quantity)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="pt-3 border-t border-gray-200 flex justify-between font-bold text-gray-900">
-                <span>Total Amount</span>
-                <span className="text-green-600">
-                  {formatCurrency(checkoutDraft.totalAmount)}
-                </span>
-              </div>
-            </div>
-          </Card>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

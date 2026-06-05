@@ -26,10 +26,10 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ### Staff portal (`/staff/login`)
 
-| Field    | Value            |
-| -------- | ---------------- |
-| Email    | `admin@zoo.com`  |
-| Password | `admin123`       |
+| Field    | Value           |
+| -------- | --------------- |
+| Email    | `admin@zoo.com` |
+| Password | `admin123`      |
 
 ### Visitor accounts
 
@@ -64,22 +64,22 @@ src/
 
 ## Storage Keys
 
-| Key               | Purpose              |
-| ----------------- | -------------------- |
-| `zooAnimals`      | Animal records       |
-| `zooBookings`     | Ticket bookings      |
-| `zooVisitors`     | Registered visitors  |
-| `zooLoggedInUser` | Visitor session      |
-| `zooStaffSession` | Staff session        |
-| `zooCheckoutDraft`| In-progress checkout |
+| Key                | Purpose              |
+| ------------------ | -------------------- |
+| `zooAnimals`       | Animal records       |
+| `zooBookings`      | Ticket bookings      |
+| `zooVisitors`      | Registered visitors  |
+| `zooLoggedInUser`  | Visitor session      |
+| `zooStaffSession`  | Staff session        |
+| `zooCheckoutDraft` | In-progress checkout |
 
 ## Scripts
 
-| Command         | Description          |
-| --------------- | -------------------- |
-| `npm run dev`   | Start dev server     |
-| `npm run build` | Production build     |
-| `npm run lint`  | Run ESLint           |
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start dev server         |
+| `npm run build`   | Production build         |
+| `npm run lint`    | Run ESLint               |
 | `npm run preview` | Preview production build |
 
 ## License

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { Pencil, Trash2, Plus, X } from "lucide-react";
 import { getAnimals, setAnimals, seedAnimals } from "../../utils/storage";
@@ -25,14 +25,16 @@ const EMPTY_ANIMAL = {
 };
 
 const ManageAnimals = () => {
-  const [animals, setAnimalsState] = useState(() => {
-    seedAnimals(defaultAnimals);
-    return getAnimals();
-  });
+  const [animals, setAnimalsState] = useState([]);
   const [search, setSearch] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(EMPTY_ANIMAL);
+
+  useEffect(() => {
+    seedAnimals(defaultAnimals);
+    setAnimalsState(getAnimals());
+  }, []);
 
   const filteredAnimals = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -176,7 +178,9 @@ const ManageAnimals = () => {
                   <td className="px-6 py-4">
                     <Badge
                       variant={
-                        animal.healthStatus === "Healthy" ? "success" : "warning"
+                        animal.healthStatus === "Healthy"
+                          ? "success"
+                          : "warning"
                       }
                     >
                       {animal.healthStatus}

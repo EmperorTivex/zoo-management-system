@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { getBookings, updateBooking } from "../../utils/storage";
 import { formatCurrency, formatDate } from "../../utils/helpers";
@@ -22,9 +22,13 @@ const getDisplayStatus = (booking) => {
 };
 
 const ManageBookings = () => {
-  const [bookings, setBookings] = useState(() => getBookings());
+  const [bookings, setBookings] = useState([]);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
+
+  useEffect(() => {
+    setBookings(getBookings());
+  }, []);
 
   const refreshBookings = () => setBookings(getBookings());
 
@@ -138,7 +142,9 @@ const ManageBookings = () => {
                       <Button
                         variant="outline"
                         className="text-xs py-1 px-2 w-full sm:w-auto"
-                        disabled={booking.checkedIn || booking.status === "Cancelled"}
+                        disabled={
+                          booking.checkedIn || booking.status === "Cancelled"
+                        }
                         onClick={() => handleCheckIn(booking)}
                       >
                         Check In
