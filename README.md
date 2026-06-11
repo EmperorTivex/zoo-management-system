@@ -13,15 +13,6 @@ Data is stored in the browser via `localStorage` (no backend required).
 - Sonner (toasts)
 - Lucide React (icons)
 
-## Getting Started
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173).
-
 ## Demo Credentials
 
 ### Staff portal (`/staff/login`)
@@ -34,8 +25,6 @@ Open [http://localhost:5173](http://localhost:5173).
 ### Visitor accounts
 
 Register at `/register`, then log in at `/login`.
-
-## Features
 
 ### Public
 
@@ -72,16 +61,3 @@ src/
 | `zooLoggedInUser`  | Visitor session      |
 | `zooStaffSession`  | Staff session        |
 | `zooCheckoutDraft` | In-progress checkout |
-
-## Scripts
-
-| Command           | Description              |
-| ----------------- | ------------------------ |
-| `npm run dev`     | Start dev server         |
-| `npm run build`   | Production build         |
-| `npm run lint`    | Run ESLint               |
-| `npm run preview` | Preview production build |
-
-## License
-
-See [LICENSE](LICENSE).

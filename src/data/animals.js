@@ -1,7 +1,7 @@
 const animals = [
   {
     id: "lion-001",
-    name: "Leo",
+    name: "David",
     species: "African Lion",
     category: "Mammal",
     habitat: "Savannah",
@@ -16,11 +16,11 @@ const animals = [
     image:
       "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=80&w=800",
     description:
-      "Leo is one of the oldest lions in the zoo and serves as the pride leader.",
+      "David is one of the oldest lions in the zoo and serves as the pride leader.",
   },
   {
     id: "elephant-001",
-    name: "Ellie",
+    name: "Bisi",
     species: "African Bush Elephant",
     category: "Mammal",
     habitat: "Savannah",
@@ -35,11 +35,11 @@ const animals = [
     image:
       "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&q=80&w=800",
     description:
-      "Ellie is a gentle giant who loves bathing in the mud during the afternoon.",
+      "Bisi is a gentle elephant who loves bathing in the mud during the afternoon.",
   },
   {
     id: "giraffe-001",
-    name: "Gerry",
+    name: "Abdul",
     species: "Reticulated Giraffe",
     category: "Mammal",
     habitat: "Savannah",
@@ -54,7 +54,7 @@ const animals = [
     image:
       "https://images.unsplash.com/photo-1702498257321-6b5907efcda5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmV0aWN1bGF0ZWQlMjBHaXJhZmZlfGVufDB8fDB8fHww",
     description:
-      "Gerry is known for his curious nature and long neck that helps him reach the highest leaves.",
+      "Abdul is known for his curious nature and long neck that helps him reach the highest leaves.",
   },
   {
     id: "tiger-001",
